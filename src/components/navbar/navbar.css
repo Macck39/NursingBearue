@@ -1,0 +1,119 @@
+.navbar {
+  height: 100px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Adjust as needed */
+}
+
+.logo {
+  position: relative;
+  top: -25px;
+}
+
+#logo-img {
+  width: 100px;
+  height: 90px;
+  cursor: pointer;
+  /* margin-right: 250px; */
+}
+
+.button-box {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.menu-icon {
+  display: none; /* Hidden by default */
+}
+
+.nav-elements ul {
+  display: flex;
+  justify-content: space-between; /* Space between items */
+  list-style-type: none;
+  margin-bottom: 75px;
+}
+
+.nav-elements ul li:not(:last-child) {
+  margin-right: 20px; /* Space between nav items */
+}
+
+.nav-elements ul a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2f234f;
+  text-decoration: none;
+}
+
+.nav-elements ul a.active {
+  color: #4ab688;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.fa-house-chimney:before,
+.fa-circle-exclamation:before,
+.fa-video:before,
+.fa-briefcase-medical:before,
+.fa-phone:before {
+  padding-right: 5px;
+  /* color: #4ab688; */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .nav-elements ul li:not(:last-child) {
+    margin-right: 30px; /* Increased space on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show menu icon on small screens */
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1100; /* Above nav elements */
+  }
+
+  .nav-elements {
+    position: absolute;
+    right: 0;
+    top: 60px; /* Adjust based on navbar height */
+    background-color: #fff;
+    width: 0;
+    height: calc(100vh - 60px);
+    transition: width 0.3s ease-in;
+    overflow: hidden;
+  }
+
+  .nav-elements.active {
+    width: 220px;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* height: 400px; */
+  }
+
+  .nav-elements ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0; /* Remove default padding */
+    row-gap: 20px;
+  }
+
+  .nav-elements ul li {
+    margin-right: unset; /* Reset margin */
+    margin-top: 22px; /* Space between items */
+  }
+
+  .nav-elements ul a {
+    font-size: 18px; /* Larger font size for readability */
+    padding: 15px; /* Add padding for touch targets */
+  }
+}

@@ -1,0 +1,90 @@
+#footer {
+  width: 100%;
+  background: #1f4438;
+  color: #dbdbdb;
+  padding: 20px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures content and copyright are spaced vertically */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.footer-column {
+  flex: 1;
+  margin: 0 10px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.footer-column .logo {
+  margin-bottom: 10px;
+}
+
+.footer-column .logo img {
+  width: 50px;
+}
+
+.footer-column p,
+.footer-column a {
+  color: #dbdbdb;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #dea963;
+}
+
+.contact-number {
+  display: inline;
+}
+
+.social-icons-footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icons-footer svg {
+  color: #dbdbdb;
+  font-size: 1.5em;
+  border: 2px solid #dbdbdb; /* Add border to the icons */
+  border-radius: 50%; /* Apply border-radius to make the icons circular */
+  padding: 5px; /* Add padding inside the border */
+}
+
+.copyrights {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1085px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-column {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .copyrights {
+    text-align: center;
+  }
+
+  .copyright-icon {
+    display: none;
+  }
+}

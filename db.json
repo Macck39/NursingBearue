@@ -1,0 +1,29 @@
+{
+  "cards": [
+    { "image": "Group 84.png", "title": "24 Hours Home Nursing Services" },
+    { "image": "Ambulance Services.png", "title": "Ambulance Services" },
+    { "image": "Nurse Bureaus.png", "title": "Nursing Services" },
+    { "image": "Arthritis.png", "title": "Arthritis Services" },
+    { "image": "Physiotherapy Centres-1.png", "title": "Physiotherapy Center" },
+    { "image": "Group 86.png", "title": "Paralysis" },
+    { "image": "Ventilator Services.png", "title": "Ventilator Services" },
+    {
+      "image": "Physiotherapists For Sprain.png",
+      "title": "Physiotherapists for Sprain"
+    },
+    { "image": "Doctor Visit.png", "title": "Doctor Visit" },
+    { "image": "Elderly Care.png", "title": "Elderly Care" },
+    { "image": "Mother & Child Care.png", "title": "Mother & Child Care" },
+    { "image": "Medical Equipment.png", "title": "Medical Equipment" },
+    {
+      "image": "Medicines at Home Physiotherapy Mother & Child Care On Call Injectable &.png",
+      "title": "Medicine At Home"
+    },
+    {
+      "image": "On Call Injectable & Dressing Veits.png",
+      "title": "Injectable"
+    },
+    { "image": "Sample Collection.png", "title": "Sample Collection" },
+    { "image": "X-Ray at Home.png", "title": "Xray" }
+  ]
+}

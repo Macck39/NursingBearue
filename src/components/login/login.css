@@ -1,0 +1,37 @@
+/* Container styles */
+#login-container {
+  height: 100vh;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-control-lg {
+  height: 50px; /* Adjust input height */
+}
+
+.form-outline {
+  position: relative;
+}
+
+.form-check {
+  margin-bottom: 0; /* Adjust checkbox position */
+}
+
+/* Button styles */
+.btn-primary {
+  height: 50px; /* Adjust button height */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .col-md-8,
+  .col-lg-7,
+  .col-xl-6 {
+    display: none; /* Hide image on smaller screens */
+  }
+}
