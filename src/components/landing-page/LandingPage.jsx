@@ -4,14 +4,6 @@ import AboutImage from "../../assets/Rectangle 57.png"; // Adjust the path as ne
 import AboutImage1 from "../../assets/Vector.png";
 import AboutImage2 from "../../assets/image 22.png";
 import Service from "../../assets/Frame 427318620.png";
-// import HomeNursing from "../../assets/Group 84.png";
-// import Ambulance from "../../assets/Ambulance Services.png";
-// import Nursing from "../../assets/Nurse Bureaus.png";
-// import Arthritis from "../../assets/Arthritis.png";
-// import Physiotherapy from "../../assets/Physiotherapy Centres-1.png";
-// import Paralysis from "../../assets/Group 86.png";
-// import Ventilator from "../../assets/Ventilator Services.png";
-// import Sprain from "../../assets/Physiotherapists For Sprain.png";
 import HomeService from "../../assets/home-service.webp";
 import HappierYou from "../../assets/happier-you.jpg";
 import Care from "../../assets/care.jpg";
@@ -22,11 +14,13 @@ import Colons from "../../assets/,,.png";
 import AppointmentModal from "../appointment-modal/AppointmentModal";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import VideosPage from "../../pages/VideosPage";
 import cards from "../../util/serviceList";
-import { Select } from "antd";
 import { createEnquiry } from "../../util/api";
 import { useNotification } from "../NotificationContext";
+import IVF from "../../assets/IVF.png";
+import Exhibition from "../../assets/Mask group.png";
+import YoutubeProfileImage from "../../assets/youtube-profile-image.jpg";
+
 
 const LandingPage = () => {
   const limitedItems = cards.slice(0, 8);
@@ -75,6 +69,11 @@ const LandingPage = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [currentVideo, setCurrentVideo] = useState({
+    src: "https://youtube.com/embed/duwQNtb-7rw?si=SKld_sSO0AT36jbL",
+    title: "Default Video",
+  });
+
   const handleNextTestimonial = () => {
     setCurrentIndex((prevIndex) => {
       const nextIndex = prevIndex + 2;
@@ -83,18 +82,28 @@ const LandingPage = () => {
   };
 
   const videos = [
-    {
+   {
       id: 1,
-      src: "https://www.youtube.com/embed/pnJrO3WssIg?si=vRJ1jbg9eXoGvF8V",
-      title: "Recurrent Pregnancy Loss",
-      description: "Short description of video 1.",
+      src: "https://www.youtube.com/embed/uEXSBuhJ1AA?si=thCqm7RBzg6vlleI",
+      title: "Experiment",
+      description: "Short Description.",
+      thumbnail: Exhibition,
     },
     {
       id: 2,
       src: "https://youtube.com/embed/duwQNtb-7rw?si=SKld_sSO0AT36jbL",
       title: "Home Service",
       description: "Bahut Dino se Office nahi aa rahe.",
+      thumbnail: IVF,
     },
+    {
+      id: 3,
+      src: "https://www.youtube.com/embed/saYYa6rbjb0",
+      title: "Home Service",
+      description: "Surgery ke baad sankraman",
+      thumbnail: IVF,
+    },
+   
   ];
 
   const [showModal, setShowModal] = useState(false);
@@ -115,6 +124,13 @@ const LandingPage = () => {
     const { name, value } = e.target;
     setEnquiryData({ ...enquiryData, [name]: value });
   };
+  const handleVideoClick = (video) => {
+    setCurrentVideo({
+      src: video.src,
+      title: video.title,
+    });
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -290,7 +306,54 @@ const LandingPage = () => {
       </section>
       <section className="mt-5">
         <div>
-          <VideosPage />
+        <div>
+        <h2 className="text-center">Our Videos & Real Stories</h2>
+      </div>
+          <div className="container">
+        <div className="left-section">
+          <div className="video corner-wrapper">
+            <iframe
+              width="720"
+              height="315"
+              src={currentVideo.src}
+              title={`YouTube video player - ${currentVideo.title}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="youtube-channel-info">
+            <img
+              src={YoutubeProfileImage}
+              alt="Profile"
+              className="youtube-profile-photo"
+            />
+            <div className="youtube-channel-details">
+              <p className="youtube-channel-name">Ragini Nursing Bureau</p>
+            </div>
+          </div>
+        </div>
+        <div className="right-section">
+          {videos.map((video) => (
+            <div
+              className="thumbnail"
+              key={video.id}
+              onClick={() => handleVideoClick(video)}
+            >
+              <img
+                className="thumbnail-image"
+                src={video.thumbnail}
+                alt={`Thumbnail for ${video.title}`}
+              />
+              <div className="thumbnail-description">
+                <h4>{video.title}</h4>
+                <p>{video.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
           <div
             className="d-flex justify-content-end"
             style={{ marginRight: "300px" }}
