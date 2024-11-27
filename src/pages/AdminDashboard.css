@@ -168,18 +168,3 @@ th {
   color: red;
   font-weight: bold;
 }
-
-.export-button {
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-right: 16px;
-}
-
-.export-button:hover {
-  background-color: #45a049;
-}

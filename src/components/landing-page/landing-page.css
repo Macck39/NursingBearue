@@ -34,11 +34,18 @@
 .wrapper p {
   line-height: 1.2;
   margin-bottom: 10px;
-  font-weight: 700;
   font-weight: 800;
-  font-size: 2em; /* Adjust the size as needed */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
   padding: 10px 20px;
+}
+
+/* Base styles for small screens */
+.wrapper h1 {
+  font-size: 1.5em; /* 24px if base font size is 16px */
+}
+
+.wrapper p {
+  font-size: 1em; /* 16px if base font size is 16px */
 }
 
 .banner-img {
@@ -65,11 +72,39 @@
   justify-content: center;
   width: fit-content;
   margin: 40px auto 0 auto;
-  font-size: 25px;
   background: #4ba889;
-  padding: 6px 12px;
   border-radius: 10px;
   transition: all 200ms ease;
+}
+
+/* Base styles for small screens */
+.btn {
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+/* Medium screens */
+@media screen and (min-width: 600px) {
+  .btn {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 900px) {
+  .btn {
+    font-size: 22px;
+    padding: 12px 24px;
+  }
+}
+
+/* Extra large screens */
+@media screen and (min-width: 1200px) {
+  .btn {
+    font-size: 25px;
+    padding: 14px 28px;
+  }
 }
 
 .btn:hover {
@@ -81,13 +116,36 @@
   text-align: center;
 }
 
-@media screen and (min-width: 900px) {
+/* Medium screens */
+@media screen and (min-width: 600px) {
   .wrapper h1 {
-    font-size: 40px;
+    font-size: 1.75em; /* 28px if base font size is 16px */
   }
 
   .wrapper p {
-    font-size: 20px;
+    font-size: 1.125em; /* 18px if base font size is 16px */
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 900px) {
+  .wrapper h1 {
+    font-size: 2.5em; /* 40px if base font size is 16px */
+  }
+
+  .wrapper p {
+    font-size: 1.25em; /* 20px if base font size is 16px */
+  }
+}
+
+/* Extra large screens */
+@media screen and (min-width: 1200px) {
+  .wrapper h1 {
+    font-size: 3em; /* 48px if base font size is 16px */
+  }
+
+  .wrapper p {
+    font-size: 1.5em; /* 24px if base font size is 16px */
   }
 }
 
@@ -154,9 +212,10 @@
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .three-button {
-    width: 100%; /* Full width on tablet */
-    flex-direction: column; /* Stack buttons vertically */
+    width: 90%; /* Full width on tablet */
+    /* flex-direction: column; Stack buttons vertically */
     align-items: center; /* Center buttons */
+    gap: 10px;
   }
 
   .three-btn {
@@ -183,7 +242,7 @@
   }
 
   .three-btn-text-desc {
-    font-size: 12px; /* Smaller description text size */
+    font-size: 0.5em; /* Smaller description text size */
   }
 }
 
@@ -277,7 +336,7 @@ img.plus-vector {
 
 .service-enquiry-container {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -397,6 +456,10 @@ img.plus-vector {
   .card-body h6 {
     font-size: 10px;
   }
+
+  img.nurse-image {
+    width: 200px;
+  }
 }
 
 /* Why Choose us */
@@ -506,7 +569,7 @@ h2 {
 
 /* Videos */
 .container {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   padding: 20px;
 }
@@ -594,8 +657,6 @@ h2 {
 .corner-wrapper {
   display: block;
   overflow: hidden;
-  /* width: 300px;
-    height: 150px; */
   border-radius: 10px;
   transform: translateZ(0px);
   border: 3px solid #eee;
@@ -607,13 +668,34 @@ h2 {
   border: 3px solid #eee;
 }
 
-@media screen and (max-width: 900px) {
+/* Media Queries */
+@media screen and (max-width: 1024px) {
   .container {
     flex-direction: column;
     align-items: center;
   }
   .left-section {
     width: 100%;
+  }
+  .right-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .left-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .thumbnail {
+    width: calc(50% - 10px); /* Adjust width to fit two thumbnails with gap */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
   }
   .thumbnail-description h4 {
     font-size: 16px;
@@ -624,23 +706,35 @@ h2 {
 }
 
 @media screen and (max-width: 676px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .left-section,
-  .right-section {
-    width: 100%;
+  .thumbnail {
+    width: 100%; /* Make thumbnails full width on very small screens */
   }
   .left-section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    width: 100%;
   }
-  .thumbnail {
-    width: calc(50% - 10px); /* Adjust width to fit two thumbnails with gap */
-    margin-bottom: 20px;
+  .right-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.link-container {
+  display: flex;
+  justify-content: flex-end; /* Default for larger screens */
+  margin: 0 300px 20px 0; /* Add some vertical spacing */
+}
+
+.link-container a {
+  display: flex;
+  align-items: center; /* Center the items vertically */
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+  .link-container {
+    justify-content: center; /* Center the link for mobile screens */
+    margin: 20px 0;
   }
 }
 
@@ -764,6 +858,10 @@ img.colons {
     margin-bottom: 60px;
   }
 
+  .ratings-icon-image {
+    max-width: 200px;
+  }
+
   .testimonial-card {
     max-width: 90%;
     margin: 10px auto;
@@ -780,6 +878,10 @@ img.colons {
 @media (max-width: 480px) {
   .ratings-icon {
     font-size: 10px; /* Adjust size */
+  }
+
+  .ratings-icon-image {
+    max-width: 150px;
   }
 
   .slider-icon {
@@ -898,7 +1000,11 @@ img.colons {
 
 @media (max-width: 480px) {
   .enquiry-image {
-    display: none;
+    /* display: none; */
+    max-width: 50%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
   }
 }
 
@@ -937,4 +1043,12 @@ img.colons {
 
 .fade-in.visible {
   opacity: 1;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar > .container,
+  .navbar > .container-fluid {
+    display: block !important;
+    /* Other styles */
+  }
 }
